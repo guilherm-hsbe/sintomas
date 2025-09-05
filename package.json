@@ -1,0 +1,22 @@
+{
+  "name": "sintomas",
+  "version": "1.0.0",
+  "description": "Registro de sintomas diários",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilherm-hsbe/sintomas.git"
+  },
+  "author": "guilherm-hsbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilherm-hsbe/sintomas/issues"
+  },
+  "homepage": "https://github.com/guilherm-hsbe/sintomas#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
