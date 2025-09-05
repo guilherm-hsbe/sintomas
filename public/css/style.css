@@ -1,3 +1,11 @@
+:root {
+    --light-blue: #74c0fc;
+    --vivid-blue: #52aef3;
+    --warm-blue: #3994de;
+    --regular-blue: #146ebe;
+    --dark-blue: #183153;
+}
+
 body  {
     font-family: "Poppins", sans-serif;
     font-size: 1.1rem;
