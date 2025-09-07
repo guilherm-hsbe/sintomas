@@ -7,6 +7,43 @@
 }
 
 body  {
-    font-family: "Poppins", sans-serif;
-    font-size: 1.1rem;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: var(--dark-blue);
+    color: white;
+}
+
+/* Cores
+   ======================================== */
+.text-regular-blue { color: var(--regular-blue); }
+
+/* Navbar
+   ======================================== */
+.navbar {
+    border: 2px solid var(--bs-dark-bg-subtle);
+    border-bottom-width: 6px;
+    background-color: white;
+}
+
+/* Nav Brand */
+.navbar-brand i {
+    display: inline-block;
+    transition: transform 0.1s ease-in-out;
+    will-change: transform;
+}
+.navbar-brand:hover i { transform: rotate(-5deg) translateY(-2px); }
+
+/* Nav Links */
+.nav-link { width: min-content; }
+.nav-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--dark-blue);
 }

@@ -1,8 +1,26 @@
-<nav>
-    <h2>Diário de Sintomas</h2>
-    <ul>
-        <li><a href="/">Início</a></li>
-        <li><a href="/sintoma">Novo Sintoma</a></li>
-        <li><a href="/relatorios">Relatórios</a></li>
-    </ul>
-</nav>  
+<nav class="container navbar navbar-expand-md px-2 px-sm-5 mt-3 rounded-4">
+    <div class="container-fluid">
+        <div>
+            <!-- brand -->
+            <a href="/" class="navbar-brand fw-semibold" draggable="false">
+                <i class="fa-solid fa-heart-pulse text-regular-blue me-1"></i>
+                Diário de Síntomas
+            </a>
+        </div>
+
+        <!-- toggler -->
+        <button class="navbar-toggler rounded-pill border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navBar">
+            <i class="navbar-toggler-icon fs-6"></i>
+        </button>
+
+        <!-- links -->
+        <div class="collapse navbar-collapse" id="navBar">
+            <div class="navbar-nav">
+                <a class="nav-link fw-medium active" aria-current="page" href="/">Início</a>
+                <a class="nav-link fw-medium" href="/sintoma">Síntoma</a>
+                <a class="nav-link fw-medium" href="/relatorios">Relatórios</a>
+            </div>
+        </div>
+    </div>
+</nav>
