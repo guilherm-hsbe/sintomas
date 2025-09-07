@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>
+        <% if (mode === 'edit') { %>
+            Editar síntoma
+        <% } else { %>
+            Novo síntoma
+        <% } %>
+    </h1>
+
+    <form action="<%= mode === 'edit' ? '/sintoma/' + sintoma.id + '?_method=PUT' : '/sintoma' %>" method="POST">
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="descricao" name="descricao"
+                value="<%= sintoma ? sintoma.descricao : '' %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="localizacao" class="form-label">Localização</label>
+            <input type="text" class="form-control" id="localizacao" name="localizacao"
+                value="<%= sintoma ? sintoma.localizacao : '' %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="duracao" class="form-label">Duração</label>
+            <input type="number" class="form-control" id="duracao" name="duracao"
+                value="<%= sintoma ? sintoma.duracao : '' %>" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="intensidade" class="form-label">Intensidade</label>
+            <input type="number" class="form-control" id="intensidade" name="intensidade"
+                value="<%= sintoma ? sintoma.intensidade : '' %>" min="1" max="10" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="data" class="form-label">Data</label>
+            <input type="date" class="form-control" id="data" name="data"
+                value="<%= sintoma ? sintoma.data : '' %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="observacoes" class="form-label">Observações</label>
+            <textarea class="form-control" name="observacoes" id="observacoes"><%= sintoma ? sintoma.observacoes : '' %></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-<%= mode === 'edit' ? 'primary' : 'success' %>">
+            <%= mode==='edit' ? 'Salvar alterações' : 'Cadastrar síntoma' %>
+        </button>
+    </form>
+</div>
