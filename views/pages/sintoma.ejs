@@ -17,7 +17,7 @@
             <label for="descricao" class="form-label">Descrição</label>
             <textarea 
                 class="form-control"
-                style="min-height: 67px; height: 67px;"
+                style="min-height: 67px; height: 67px; max-height: 259px;"
                 name="descricao" 
                 id="descricao"
                 placeholder="Resuma seu item em poucas palavras…"
@@ -52,7 +52,7 @@
         </div>
 
         <!-- duração -->
-        <div class="col-md-4">
+        <div class="col-xl-4">
             <label for="duracao" class="form-label">Duração (minutos)</label>
 
             <div class="input-group">
@@ -81,19 +81,20 @@
         </div>
 
         <!-- intensidade -->
-        <div class="col-md-4">
+        <div class="col-xl-4">
             <label for="intensidade" class="form-label">Intensidade</label>
-            <input 
-                type="number" 
-                class="form-control" 
-                name="intensidade" 
-                id="intensidade" 
-                value="<%= sintoma ? sintoma.intensidade : '' %>"
-            >
+            <input type="hidden" name="intensidade" id="intensidadeInput" value="<%= sintoma ? sintoma.intensidade : '' %>">
+
+            <div class="dropdown w-100">
+                <button class="form-select text-start" type="button" id="dropdownIntensidade" data-bs-toggle="dropdown">
+                    <i class="fas fa-thermometer-half me-2"></i> Selecione a intensidade
+                </button>
+                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100" id="listaIntensidade"></ul>
+            </div>
         </div>
 
         <!-- data -->
-        <div class="col-md-4">
+        <div class="col-xl-4">
             <label for="data" class="form-label">Data</label>
             <input 
                 type="date" 
@@ -105,12 +106,12 @@
             >
         </div>
 
-        <!-- descrição -->
+        <!-- observações -->
         <div class="col-12">
             <label for="observacoes" class="form-label">Observações</label>
             <textarea 
                 class="form-control" 
-                style="min-height: 91px; height: 91px;"
+                style="min-height: 91px; height: 91px; max-height: 259px;"
                 name="observacoes" 
                 id="observacoes" 
                 placeholder="Adicione detalhes, lembretes ou comentários extras…"
@@ -137,6 +138,7 @@
     </div>
 </form>
 
+<script src="/js/intensidades.js"></script>
 <script>
     const descricao = document.getElementById('descricao');  
     const observacoes = document.getElementById('observacoes');  
@@ -170,4 +172,36 @@
                 duracao.value = '';
         }
     }
+
+    const lista = document.getElementById("listaIntensidade");
+    const dropdownBtn = document.getElementById("dropdownIntensidade");
+    const inputHidden = document.getElementById("intensidadeInput");
+
+    intensidades.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <a class="dropdown-item d-flex flex-column" href="#" data-value="${item.value}">
+                <div class='d-flex align-items-center'>
+                    <i class="${item.icon} me-2"></i>
+                    <div class="fw-bold">${item.label}</div>
+                </div>
+                <small class="text-muted">${item.desc}</small>
+            </a>
+        `;
+        lista.appendChild(li);
+    });
+
+    // evento de clique para selecionar
+    lista.addEventListener("click", e => {
+        const target = e.target.closest(".dropdown-item");
+        if (!target) return;
+
+        e.preventDefault();
+        const value = target.getAttribute("data-value");
+        const text = target.querySelector(".fw-bold").textContent;
+        const icon = target.querySelector("i").outerHTML;
+
+        dropdownBtn.innerHTML = icon + " " + text;
+        inputHidden.value = value;
+    });
 </script>

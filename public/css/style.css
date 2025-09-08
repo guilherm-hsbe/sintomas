@@ -126,6 +126,15 @@ footer {
     box-shadow: none;
 }
 
+.dropdown-item small {
+    white-space: normal;
+    word-wrap: break-word;
+}
+.dropdown-item:active {
+    background-color: transparent;
+    color: var(--vivid-blue);
+}
+
 /* Input number arrows */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
