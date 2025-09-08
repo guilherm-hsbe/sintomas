@@ -1,50 +1,107 @@
-<div class="container">
-    <h1>
-        <% if (mode === 'edit') { %>
-            Editar síntoma
-        <% } else { %>
-            Novo síntoma
-        <% } %>
-    </h1>
+<h2>
+    <% if (mode === 'edit') { %>
+        Editar síntoma
+    <% } else { %>
+        Novo síntoma
+    <% } %>
+</h2>
 
-    <form action="<%= mode === 'edit' ? '/sintoma/' + sintoma.id + '?_method=PUT' : '/sintoma' %>" method="POST">
-        <div class="mb-3">
+<form action="<%= mode === 'edit' ? '/sintoma/' + sintoma.id + '?_method=PUT' : '/sintoma' %>" method="POST">
+    <div class="row row-gap-3">
+
+        <!-- descrição -->
+        <div class="col-12">
             <label for="descricao" class="form-label">Descrição</label>
-            <input type="text" class="form-control" id="descricao" name="descricao"
-                value="<%= sintoma ? sintoma.descricao : '' %>" required>
+            <textarea 
+                class="form-control"
+                name="descricao" 
+                id="descricao"
+                rows="2"
+                required
+            ><%= sintoma ? sintoma.descricao : '' %></textarea>
         </div>
 
-        <div class="mb-3">
-            <label for="localizacao" class="form-label">Localização</label>
-            <input type="text" class="form-control" id="localizacao" name="localizacao"
-                value="<%= sintoma ? sintoma.localizacao : '' %>" required>
+        <!-- categoria -->
+        <div class="col-md-6">
+            <label for="categoria" class="form-label">Categoria</label>
+            <select 
+                class="form-select"
+                name="categoria" 
+                id="categoria"
+                required
+            >
+                <option value="" selected>Selecione...</option>
+            </select>
         </div>
 
-        <div class="mb-3">
+        <!-- localização -->
+        <div class="col-md-6">
+            <label for="localizacao" class="form-label">Localizacao</label>
+            <select 
+                class="form-select"
+                name="localizacao" 
+                id="localizacao"
+                required
+            >
+                <option value="" selected>Selecione...</option>
+            </select>
+        </div>
+
+        <!-- duração -->
+        <div class="col-md-4">
             <label for="duracao" class="form-label">Duração</label>
-            <input type="number" class="form-control" id="duracao" name="duracao"
-                value="<%= sintoma ? sintoma.duracao : '' %>" required>
+            <input 
+                type="number" 
+                class="form-control"
+                name="duracao" 
+                id="duracao"
+                value="<%= sintoma ? sintoma.duracao : '' %>"
+            >
         </div>
-        
-        <div class="mb-3">
+
+        <!-- intensidade -->
+        <div class="col-md-4">
             <label for="intensidade" class="form-label">Intensidade</label>
-            <input type="number" class="form-control" id="intensidade" name="intensidade"
-                value="<%= sintoma ? sintoma.intensidade : '' %>" min="1" max="10" required>
+            <input 
+                type="number" 
+                class="form-control" 
+                name="intensidade" 
+                id="intensidade" 
+                value="<%= sintoma ? sintoma.intensidade : '' %>"
+            >
         </div>
 
-        <div class="mb-3">
+        <!-- data -->
+        <div class="col-md-4">
             <label for="data" class="form-label">Data</label>
-            <input type="date" class="form-control" id="data" name="data"
-                value="<%= sintoma ? sintoma.data : '' %>" required>
+            <input 
+                type="date" 
+                class="form-control" 
+                name="data" 
+                id="data"
+                value="<%= sintoma ? sintoma.data : '' %>" 
+                required
+            >
         </div>
 
-        <div class="mb-3">
+        <!-- descrição -->
+        <div class="col-12">
             <label for="observacoes" class="form-label">Observações</label>
-            <textarea class="form-control" name="observacoes" id="observacoes"><%= sintoma ? sintoma.observacoes : '' %></textarea>
+            <textarea 
+                class="form-control" 
+                name="observacoes" 
+                id="observacoes" 
+                rows="3"
+            ><%= sintoma ? sintoma.observacoes : '' %></textarea>
         </div>
-        
-        <button type="submit" class="btn btn-<%= mode === 'edit' ? 'primary' : 'success' %>">
-            <%= mode==='edit' ? 'Salvar alterações' : 'Cadastrar síntoma' %>
-        </button>
-    </form>
-</div>
+
+        <div class="col-md-auto mt-4">
+            <button 
+                type="submit" 
+                class="btn btn-<%= mode === 'edit' ? 'primary' : 'success' %>"
+            >
+                <%= mode==='edit' ? 'Salvar alterações' : 'Cadastrar síntoma' %>
+            </button>
+        </div>
+    </div>
+</form>

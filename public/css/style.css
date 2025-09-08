@@ -47,3 +47,33 @@ footer {
     text-decoration-thickness: 3px;
     text-decoration-color: var(--dark-blue);
 }
+
+/* Form
+   ======================================== */
+.form-control,
+.form-select {
+    border-radius: 0.7rem;
+    border: 2px solid var(--bs-dark-bg-subtle);
+    box-shadow: 0 2px 0 var(--bs-dark-bg-subtle);
+    padding-block: 0.6rem;
+    font-weight: 500;
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+    color: #bbbbbb;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Breakpoints
+   ======================================== */
+.container-cs { 
+    width: 95%;
+    margin-inline: auto; 
+}
+@media (min-width: 576px) { .container-cs { max-width: 550px; } }
+@media (min-width: 768px) { .container-cs { max-width: 680px; } }
+@media (min-width: 992px) { .container-cs { max-width: 765px; } }
+@media (min-width: 1200px) { .container-cs { max-width: 926px; } }
+@media (min-width: 1400px) { .container-cs { max-width: 1080px; } }
