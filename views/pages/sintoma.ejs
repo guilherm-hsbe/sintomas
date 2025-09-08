@@ -1,6 +1,9 @@
 <h2>
     <% if (mode === 'edit') { %>
         Editar síntoma
+        <span class="badge rounded-1 text-bg-light user-select-none">
+            #<%= sintoma.id %>
+        </span>
     <% } else { %>
         Novo síntoma
     <% } %>
@@ -14,9 +17,10 @@
             <label for="descricao" class="form-label">Descrição</label>
             <textarea 
                 class="form-control"
+                style="min-height: 67px; height: 67px;"
                 name="descricao" 
                 id="descricao"
-                rows="2"
+                placeholder="Resuma seu item em poucas palavras…"
                 required
             ><%= sintoma ? sintoma.descricao : '' %></textarea>
         </div>
@@ -49,14 +53,31 @@
 
         <!-- duração -->
         <div class="col-md-4">
-            <label for="duracao" class="form-label">Duração</label>
-            <input 
-                type="number" 
-                class="form-control"
-                name="duracao" 
-                id="duracao"
-                value="<%= sintoma ? sintoma.duracao : '' %>"
-            >
+            <label for="duracao" class="form-label">Duração (minutos)</label>
+
+            <div class="input-group">
+                <button 
+                    type="button" 
+                    class="btn btn-dark-blue"
+                    onclick="handleDuracao(false)">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+
+                <input 
+                    type="number" 
+                    class="form-control text-center"
+                    name="duracao" 
+                    id="duracao"
+                    value="<%= sintoma ? sintoma.duracao : '' %>"
+                >
+
+                <button 
+                    type="button" 
+                    class="btn btn-dark-blue"
+                    onclick="handleDuracao(true)">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
         </div>
 
         <!-- intensidade -->
@@ -89,19 +110,64 @@
             <label for="observacoes" class="form-label">Observações</label>
             <textarea 
                 class="form-control" 
+                style="min-height: 91px; height: 91px;"
                 name="observacoes" 
                 id="observacoes" 
-                rows="3"
+                placeholder="Adicione detalhes, lembretes ou comentários extras…"
             ><%= sintoma ? sintoma.observacoes : '' %></textarea>
         </div>
 
-        <div class="col-md-auto mt-4">
+        <div class="col-sm"></div>
+        <div class="col-sm-auto mt-4">
             <button 
                 type="submit" 
-                class="btn btn-<%= mode === 'edit' ? 'primary' : 'success' %>"
+                class="btn btn-main btn-<%= mode === 'edit' ? 'edit' : 'create' %> w-100"
             >
-                <%= mode==='edit' ? 'Salvar alterações' : 'Cadastrar síntoma' %>
+                <% if (mode === 'edit') { %>
+                    <i class="fa-solid fa-pencil"></i>
+                <% } else { %>
+                    <i class="fa-solid fa-plus"></i>
+                <% } %>
+
+                <span class="ms-2">
+                    <%= mode==='edit' ? 'Salvar Alterações' : 'Cadastrar Síntoma' %>
+                </span>
             </button>
         </div>
     </div>
 </form>
+
+<script>
+    const descricao = document.getElementById('descricao');  
+    const observacoes = document.getElementById('observacoes');  
+    const duracao = document.getElementById('duracao');
+
+    descricao.addEventListener('input', () => {
+        descricao.style.height = 'auto';
+        descricao.style.height = descricao.scrollHeight + 'px';
+    });
+
+    observacoes.addEventListener('input', () => {
+        observacoes.style.height = 'auto';
+        observacoes.style.height = observacoes.scrollHeight + 'px';
+    });
+
+    /**
+     * Aumenta/diminui valor de duração do campo de síntoma.
+     *
+     * @param {*} aumentar
+     */
+    function handleDuracao(aumentar) {
+        if (duracao) {
+            if (aumentar) {
+                duracao.value ++;
+            } else {
+                if (duracao.value >= 1)
+                    duracao.value --;
+            }
+
+            if (duracao.value <= 0)
+                duracao.value = '';
+        }
+    }
+</script>

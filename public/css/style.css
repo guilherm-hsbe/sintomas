@@ -21,7 +21,9 @@ footer {
 
 /* Cores
    ======================================== */
-.text-regular-blue { color: var(--regular-blue); }
+.text-regular-blue { 
+    color: var(--regular-blue); 
+}
 
 /* Navbar
    ======================================== */
@@ -37,7 +39,9 @@ footer {
     transition: transform 0.1s ease-in-out;
     will-change: transform;
 }
-.navbar-brand:hover i { transform: rotate(-5deg) translateY(-2px); }
+.navbar-brand:hover i { 
+    transform: rotate(-5deg) translateY(-2px); 
+}
 
 /* Nav Links */
 .nav-link { width: min-content; }
@@ -48,13 +52,64 @@ footer {
     text-decoration-color: var(--dark-blue);
 }
 
+/* Buttons
+   ======================================== */
+
+/* Main */
+.btn-main {
+    font-weight: 600;
+    padding-inline: 3rem;
+    padding-block: 1.1rem;
+    border-radius: 0.4rem;
+    transition: border-color 0.1s ease-in-out;
+}
+
+/* Dark Blue */
+.btn-dark-blue {
+    background-color: var(--dark-blue);
+    color: white;
+}
+.btn-dark-blue:hover {
+    background-color: var(--dark-blue);
+    color: var(--light-blue);
+}
+.btn-dark-blue:active {
+    background-color: var(--regular-blue) !important;
+    color: white !important;
+}
+
+/* Create */
+.btn-create {
+    background-color: white;
+    border: 2px solid var(--dark-blue);
+    box-shadow: 0 5px 0 var(--dark-blue);
+    color: var(--dark-blue);
+}
+.btn-create:hover {
+    border-color: var(--dark-blue);
+    background-color: white;
+    color: var(--regular-blue);
+}
+
+/* Edit */
+.btn-edit {
+    background-color: var(--regular-blue);
+    border: 2px solid var(--dark-blue);
+    box-shadow: 0 5px 0 var(--dark-blue);
+    color: white;
+}
+.btn-edit:hover {
+    border-color: var(--dark-blue);
+    background-color: var(--warm-blue);
+    color: white;
+}
+
 /* Form
    ======================================== */
 .form-control,
 .form-select {
     border-radius: 0.7rem;
     border: 2px solid var(--bs-dark-bg-subtle);
-    box-shadow: 0 2px 0 var(--bs-dark-bg-subtle);
     padding-block: 0.6rem;
     font-weight: 500;
 }
@@ -63,7 +118,21 @@ footer {
 .form-select::placeholder {
     color: #bbbbbb;
     font-weight: 500;
-    font-size: 1.1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--dark-blue);
+    box-shadow: none;
+}
+
+/* Input number arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"] { 
+    -moz-appearance: textfield; 
 }
 
 /* Breakpoints
