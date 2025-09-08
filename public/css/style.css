@@ -116,7 +116,7 @@ footer {
 
 .form-control::placeholder,
 .form-select::placeholder {
-    color: #bbbbbb;
+    color: var(--bs-gray-500);
     font-weight: 500;
 }
 
@@ -142,6 +142,13 @@ input::-webkit-inner-spin-button {
 }
 input[type="number"] { 
     -moz-appearance: textfield; 
+}
+
+/* Custom
+   ======================================== */
+.badge-blue {
+    background-color: var(--bs-light);
+    color: var(--regular-blue);
 }
 
 /* Breakpoints

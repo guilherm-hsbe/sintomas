@@ -1,7 +1,7 @@
-<h2>
+<h2 class="fw-bold">
     <% if (mode === 'edit') { %>
         Editar síntoma
-        <span class="badge rounded-1 text-bg-light user-select-none">
+        <span class="badge badge-blue rounded-1 user-select-none">
             #<%= sintoma.id %>
         </span>
     <% } else { %>
@@ -89,7 +89,15 @@
                 <button class="form-select text-start" type="button" id="dropdownIntensidade" data-bs-toggle="dropdown">
                     <i class="fas fa-thermometer-half me-2"></i> Selecione a intensidade
                 </button>
-                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100" id="listaIntensidade"></ul>
+                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100" id="listaIntensidade">
+                    <a class="dropdown-item d-flex flex-column" href="#" data-value="">
+                        <div class='d-flex align-items-center'>
+                            <i class="fas fa-ban text-muted me-2"></i>
+                            <div class="fw-bold">Nenhuma</div>
+                        </div>
+                        <small class="text-muted">Não informar intensidade.</small>
+                    </a>
+                </ul>
             </div>
         </div>
 
@@ -140,6 +148,10 @@
 
 <script src="/js/intensidades.js"></script>
 <script>
+    /**
+     * Ajusta dinamicamente a altura dos campos de texto
+     * (descricao e observacoes) conforme digitação.
+     */
     const descricao = document.getElementById('descricao');  
     const observacoes = document.getElementById('observacoes');  
     const duracao = document.getElementById('duracao');
@@ -173,9 +185,12 @@
         }
     }
 
-    const lista = document.getElementById("listaIntensidade");
-    const dropdownBtn = document.getElementById("dropdownIntensidade");
-    const inputHidden = document.getElementById("intensidadeInput");
+    /**
+     * Monta lista predefinida intensidades.
+     */
+    const listaIntensidade = document.getElementById("listaIntensidade");
+    const dropdownIntensidade = document.getElementById("dropdownIntensidade");
+    const hdnIntensidade = document.getElementById("intensidadeInput");
 
     intensidades.forEach(item => {
         const li = document.createElement("li");
@@ -188,11 +203,13 @@
                 <small class="text-muted">${item.desc}</small>
             </a>
         `;
-        lista.appendChild(li);
+        listaIntensidade.appendChild(li);
     });
 
-    // evento de clique para selecionar
-    lista.addEventListener("click", e => {
+    /**
+     * Configura evento de clique para selecionar intensidade.
+     */
+    listaIntensidade.addEventListener("click", e => {
         const target = e.target.closest(".dropdown-item");
         if (!target) return;
 
@@ -201,7 +218,21 @@
         const text = target.querySelector(".fw-bold").textContent;
         const icon = target.querySelector("i").outerHTML;
 
-        dropdownBtn.innerHTML = icon + " " + text;
-        inputHidden.value = value;
+        dropdownIntensidade.innerHTML = icon + " " + text;
+        hdnIntensidade.value = value;
     });
+
+    /**
+     * Seleciona automaticamente intensidade vinda do modo
+     * de edição de cadastro de síntoma.
+     */
+    const valorInicial = hdnIntensidade.value;
+    if (valorInicial) {
+        const itemSelecionado = listaIntensidade.querySelector(`[data-value="${valorInicial}"]`);
+        if (itemSelecionado) {
+            const text = itemSelecionado.querySelector(".fw-bold").textContent;
+            const icon = itemSelecionado.querySelector("i").outerHTML;
+            dropdownIntensidade.innerHTML = icon + " " + text;
+        }
+    }
 </script>
