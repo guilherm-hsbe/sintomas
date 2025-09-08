@@ -1,2 +1,19 @@
-<h1>Bem-vindo ao Diário de Sintomas</h1>
+<h1>
+    <i id="icnHora"></i>
+    <span id="msgHora"></span>, como você está se sentindo?
+</h1>
 <p>Registre seus sintomas e acompanhe seu histórico.</p>
+
+<script>
+    const dataAtual = new Date();
+    const hora = dataAtual.getHours();
+
+    document.getElementById('msgHora').innerHTML = 
+        hora > 6 && hora <= 12 ? 'Bom dia' :
+        hora > 12 && hora <= 18 ? 'Boa tarde' : 'Boa noite';
+
+    document.getElementById('icnHora').classList = 
+        hora > 6 && hora <= 12 ? 'fa fa-cloud-sun text-info me-1' :
+        hora > 12 && hora <= 18 ? 'fa fa-sun text-warning me-1' : 
+        'fa fa-moon text-primary-emphasis me-1';
+</script>
