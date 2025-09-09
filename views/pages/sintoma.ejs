@@ -52,7 +52,7 @@
         </div>
 
         <!-- duração -->
-        <div class="col-xl-4">
+        <div class="col-xl-3">
             <label for="duracao" class="form-label">Duração (minutos)</label>
 
             <div class="input-group">
@@ -69,6 +69,8 @@
                     name="duracao" 
                     id="duracao"
                     value="<%= sintoma ? sintoma.duracao : '' %>"
+                    min="1"
+                    step="1"
                 >
 
                 <button 
@@ -102,14 +104,39 @@
         </div>
 
         <!-- data -->
-        <div class="col-xl-4">
+        <%
+            const dataAtual = new Date();
+            const pad = n => n.toString().padStart(2, '0');
+
+            const dataFormatada = dataAtual.getFullYear() + '-' + pad(dataAtual.getMonth() + 1) + '-' + pad(dataAtual.getDate());
+            const horaFormatada = pad(dataAtual.getHours()) + ':' + pad(dataAtual.getMinutes());
+        %>
+        <div class="col-sm-6 col-xl-3">
             <label for="data" class="form-label">Data</label>
             <input 
                 type="date" 
                 class="form-control" 
                 name="data" 
                 id="data"
-                value="<%= sintoma ? sintoma.data : '' %>" 
+                value="<%= sintoma ? sintoma.data : dataFormatada %>" 
+                min="1900-01-01"
+                max="2100-12-31"
+                step="1"
+                required
+            >
+        </div>
+
+        <!-- hora -->
+        <div class="col-sm-6 col-xl-2">
+            <label for="hora" class="form-label">Hora</label>
+            <input 
+                type="time" 
+                class="form-control" 
+                name="hora" 
+                id="hora" 
+                value="<%= sintoma ? sintoma.hora : horaFormatada %>" 
+                min="00:00"
+                max="23:59"
                 required
             >
         </div>

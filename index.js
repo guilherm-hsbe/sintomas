@@ -39,7 +39,8 @@ app.get('/sintoma/:id', (req, res) => {
         duracao: 1,
         intensidade: 3,
         observacoes: 'Nenhuma observação',
-        data: '2025-09-07'
+        data: '2025-09-07',
+        hora: '08:00'
     };
     res.render('pages/sintoma', { mode: 'edit', sintoma: sintoma });
 });
