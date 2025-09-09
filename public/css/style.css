@@ -1,6 +1,6 @@
 :root {
-    --light-blue: #74c0fc;
-    --vivid-blue: #52aef3;
+    --light-blue: #74c0fc; /* redefinir */
+    --vivid-blue: #309ceb;
     --warm-blue: #3994de;
     --regular-blue: #146ebe;
     --dark-blue: #183153;
@@ -36,10 +36,11 @@ footer {
 /* Nav Brand */
 .navbar-brand i {
     display: inline-block;
-    transition: transform 0.1s ease-in-out;
-    will-change: transform;
+    transition: transform 0.1s ease-in-out, color 0.2s ease-in-out;
+    will-change: transform, color;
 }
-.navbar-brand:hover i { 
+.navbar-brand:hover i {
+    color: var(--vivid-blue);
     transform: rotate(-5deg) translateY(-2px); 
 }
 
@@ -71,7 +72,7 @@ footer {
 }
 .btn-dark-blue:hover {
     background-color: var(--dark-blue);
-    color: var(--light-blue);
+    color: var(--vivid-blue);
 }
 .btn-dark-blue:active {
     background-color: var(--regular-blue) !important;
