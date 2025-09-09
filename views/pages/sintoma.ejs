@@ -40,15 +40,37 @@
 
         <!-- localização -->
         <div class="col-md-6">
-            <label for="localizacao" class="form-label">Localizacao</label>
-            <select 
-                class="form-select"
-                name="localizacao" 
-                id="localizacao"
-                required
-            >
-                <option value="" selected>Selecione...</option>
-            </select>
+            <label for="btnLocalizacao" class="form-label">Localizacao</label>
+            <input type="hidden" name="localizacao" id="hdnLocalizacao" value="<%= sintoma ? sintoma.localizacao : '' %>">
+            
+            <div class="dropdown w-100">
+                <% 
+                    let localizacaoExistente = null; 
+                    if (sintoma) { 
+                        const loc=localizacoes.find(l=> l.id === sintoma.localizacao);
+                        if (loc) {
+                            localizacaoExistente = loc.nome;
+                        }
+                    }
+                %>
+                <button class="form-select text-start" type="button" id="btnLocalizacao" data-bs-toggle="dropdown">
+                    <% if (localizacaoExistente) { %>
+                        <%= localizacaoExistente %>
+                    <% } else { %>
+                        <i class="fas fa-location-dot me-2"></i> Selecione a localização
+                    <% } %>
+                </button>
+
+                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100 overflow-y-auto" id="listaLocalizacao" style="max-height: 350px;">
+                <% localizacoes.forEach(loc=> { %>
+                    <li>
+                        <a class="dropdown-item fw-medium" href="#" data-value="<%= loc.id %>">
+                            <%= loc.nome %>
+                        </a>
+                    </li>
+                <% }) %>
+                </ul>
+            </div>
         </div>
 
         <!-- duração -->
@@ -262,4 +284,16 @@
             dropdownIntensidade.innerHTML = icon + " " + text;
         }
     }
+
+    /**
+     * Configura evento de clique para selecionar localização.
+     */
+    document.getElementById("listaLocalizacao").addEventListener("click", e => {
+        const item = e.target.closest(".dropdown-item");
+        if (!item) return;
+
+        e.preventDefault();
+        document.getElementById("btnLocalizacao").textContent = item.textContent;
+        document.getElementById("hdnLocalizacao").value = item.dataset.value;
+    });
 </script>
