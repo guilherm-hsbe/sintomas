@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./db/connection');
+const { getLocalizacoes } = require('./models/localizacaoModel');
 
 const app = express();
 const PORT = 3000;
@@ -25,24 +26,27 @@ app.get('/', (req, res) => {
 });
 
 // Criar síntoma
-app.get('/sintoma', (req, res) => {
-    res.render('pages/sintoma', { mode: 'create', sintoma: null });
+app.get('/sintoma', async (req, res) => {
+    const localizacoes = await getLocalizacoes();
+    res.render('pages/sintoma', { mode: 'create', sintoma: null, localizacoes });
 });
 
 // Editar síntoma
-app.get('/sintoma/:id', (req, res) => {
+app.get('/sintoma/:id', async (req, res) => {
+    const localizacoes = await getLocalizacoes();
+
     const id = req.params.id;
     const sintoma = {
         id: id,
-        descricao: 'Dor de cabeça',
-        localizacao: 'Cabeça',
+        descricao: 1,
+        localizacao: 1,
         duracao: 1,
         intensidade: 3,
         observacoes: 'Nenhuma observação',
         data: '2025-09-07',
         hora: '08:00'
     };
-    res.render('pages/sintoma', { mode: 'edit', sintoma: sintoma });
+    res.render('pages/sintoma', { mode: 'edit', sintoma: sintoma, localizacoes });
 });
 
 // Relatórios
