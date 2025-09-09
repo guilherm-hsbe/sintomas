@@ -81,27 +81,32 @@ footer {
 /* Create */
 .btn-create {
     background-color: white;
+    box-shadow: 0 7px 0 var(--dark-blue);
     border: 2px solid var(--dark-blue);
-    box-shadow: 0 5px 0 var(--dark-blue);
     color: var(--dark-blue);
 }
 .btn-create:hover {
-    border-color: var(--dark-blue);
-    background-color: white;
     color: var(--regular-blue);
+}
+.btn-create:active {
+    box-shadow: 0 3px 0 var(--dark-blue);
+    transform: translateY(4px);
 }
 
 /* Edit */
 .btn-edit {
     background-color: var(--regular-blue);
+    box-shadow: 0 7px 0 var(--dark-blue);
     border: 2px solid var(--dark-blue);
-    box-shadow: 0 5px 0 var(--dark-blue);
     color: white;
 }
 .btn-edit:hover {
-    border-color: var(--dark-blue);
     background-color: var(--warm-blue);
-    color: white;
+}
+.btn-edit:active {
+    background-color: var(--regular-blue);
+    box-shadow: 0 3px 0 var(--dark-blue);
+    transform: translateY(4px);
 }
 
 /* Form
