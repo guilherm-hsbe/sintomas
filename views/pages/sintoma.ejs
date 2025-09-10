@@ -138,32 +138,38 @@
         %>
         <div class="col-sm-6 col-xl-3">
             <label for="data" class="form-label">Data</label>
-            <input 
-                type="date" 
-                class="form-control" 
-                name="data" 
-                id="data"
-                value="<%= sintoma ? sintoma.data : dataFormatada %>" 
-                min="1900-01-01"
-                max="2100-12-31"
-                step="1"
-                required
-            >
+            <div class="input-wrapper">
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    name="data" 
+                    id="data"
+                    value="<%= sintoma ? sintoma.data : dataFormatada %>" 
+                    min="1900-01-01"
+                    max="2100-12-31"
+                    step="1"
+                    required
+                >
+                <i class="fa fa-calendar"></i>
+            </div>
         </div>
 
         <!-- hora -->
         <div class="col-sm-6 col-xl-2">
             <label for="hora" class="form-label">Hora</label>
-            <input 
-                type="time" 
-                class="form-control" 
-                name="hora" 
-                id="hora" 
-                value="<%= sintoma ? sintoma.hora : horaFormatada %>" 
-                min="00:00"
-                max="23:59"
-                required
-            >
+            <div class="input-wrapper">
+                <input 
+                    type="time" 
+                    class="form-control" 
+                    name="hora" 
+                    id="hora" 
+                    value="<%= sintoma ? sintoma.hora : horaFormatada %>" 
+                    min="00:00"
+                    max="23:59"
+                    required
+                >
+                <i class="fa fa-clock"></i>
+            </div>
         </div>
 
         <!-- observações -->
@@ -203,6 +209,9 @@
 <script src="/js/script.js"></script>
 
 <script>
+    document.getElementById("data").addEventListener("focus", () => data.showPicker?.());
+    document.getElementById("hora").addEventListener("focus", () => hora.showPicker?.());
+
     /**
      * Ajusta dinamicamente a altura dos campos de texto
      * (descricao e observacoes) conforme digitação.

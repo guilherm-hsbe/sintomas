@@ -150,6 +150,28 @@ input[type="number"] {
     -moz-appearance: textfield; 
 }
 
+/* Input date & time styling/icon */
+input[type="date"],
+input[type="time"] {
+    cursor: pointer;
+}
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.input-wrapper {
+    position: relative;
+}
+.input-wrapper i {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
 /* Custom
    ======================================== */
 .badge-blue {
