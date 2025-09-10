@@ -9,6 +9,8 @@
     <% } %>
 </h2>
 
+<div id="cardInfo"></div>
+
 <form action="<%= mode === 'edit' ? '/sintoma/' + sintoma.id + '?_method=PUT' : '/sintoma' %>" method="POST">
     <div class="row row-gap-3">
 
@@ -198,6 +200,8 @@
 </form>
 
 <script src="/js/intensidades.js"></script>
+<script src="/js/script.js"></script>
+
 <script>
     /**
      * Ajusta dinamicamente a altura dos campos de texto

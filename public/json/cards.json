@@ -1,0 +1,152 @@
+[
+    {
+        "titulo": "Hidrate-se",
+        "texto": "Beber água regularmente ajuda a prevenir fadiga e dores de cabeça, sintomas comuns da desidratação.",
+        "icone": "fas fa-tint"
+    },
+    {
+        "titulo": "Sono adequado",
+        "texto": "Dormir entre 7 e 9 horas fortalece o sistema imunológico e reduz sintomas de estresse.",
+        "icone": "fas fa-bed"
+    },
+    {
+        "titulo": "Febre",
+        "texto": "Febre é um sintoma de que o corpo está combatendo algo. Procure atendimento se durar mais de 3 dias.",
+        "icone": "fas fa-thermometer-half"
+    },
+    {
+        "titulo": "Dor abdominal",
+        "texto": "Pode indicar desde má digestão até doenças inflamatórias. Atenção à intensidade e duração.",
+        "icone": "fas fa-wave-square"
+    },
+    {
+        "titulo": "Alimentação equilibrada",
+        "texto": "Frutas, verduras e proteínas magras ajudam a reduzir sintomas como fadiga e falta de concentração.",
+        "icone": "fas fa-apple-alt"
+    },
+    {
+        "titulo": "Atividade física",
+        "texto": "Exercícios regulares previnem sintomas de ansiedade e depressão e fortalecem o coração.",
+        "icone": "fas fa-running"
+    },
+    {
+        "titulo": "Diarreia",
+        "texto": "Se persistir por mais de 3 dias ou vier acompanhada de febre, pode indicar infecção.",
+        "icone": "fas fa-toilet"
+    },
+    {
+        "titulo": "Pratique respiração",
+        "texto": "Respirar fundo por alguns minutos ajuda a reduzir sintomas de estresse e tensão muscular.",
+        "icone": "fas fa-lungs"
+    },
+    {
+        "titulo": "Pressão arterial",
+        "texto": "Hipertensão pode ser silenciosa. Acompanhe regularmente sua pressão arterial.",
+        "icone": "fas fa-heart"
+    },
+    {
+        "titulo": "Evacuação incompleta",
+        "texto": "Pode indicar síndrome do intestino irritável ou doença inflamatória intestinal.",
+        "icone": "fas fa-restroom"
+    },
+    {
+        "titulo": "Urgência para evacuar",
+        "texto": "Se frequente, pode sugerir inflamação intestinal. Avalie com um profissional de saúde.",
+        "icone": "fas fa-exclamation-circle"
+    },
+    {
+        "titulo": "Manchas na pele",
+        "texto": "Mudanças repentinas na pele podem indicar alergias ou outras condições médicas.",
+        "icone": "fas fa-allergies"
+    },
+    {
+        "titulo": "Dor de cabeça",
+        "texto": "Pode ter múltiplas causas: desidratação, tensão, má postura ou enxaqueca.",
+        "icone": "fas fa-head-side-virus"
+    },
+    {
+        "titulo": "Saúde mental",
+        "texto": "Sintomas de ansiedade e depressão devem ser acompanhados como qualquer outra condição de saúde.",
+        "icone": "fas fa-brain"
+    },
+    {
+        "titulo": "Cansaço frequente",
+        "texto": "Pode estar ligado a anemia, falta de vitaminas ou problemas no sono.",
+        "icone": "fas fa-battery-quarter"
+    },
+    {
+        "titulo": "Tosse persistente",
+        "texto": "Se durar mais de 3 semanas, procure avaliação médica.",
+        "icone": "fas fa-lungs-virus"
+    },
+    {
+        "titulo": "Dor nas articulações",
+        "texto": "Rigidez ou dor prolongada pode indicar artrite ou inflamação crônica.",
+        "icone": "fas fa-bone"
+    },
+    {
+        "titulo": "Check-up anual",
+        "texto": "Consultas preventivas ajudam a detectar doenças antes que os sintomas apareçam.",
+        "icone": "fas fa-notes-medical"
+    },
+    {
+        "titulo": "Alcool em excesso",
+        "texto": "O consumo frequente pode causar sintomas gastrointestinais e fadiga.",
+        "icone": "fas fa-wine-bottle"
+    },
+    {
+        "titulo": "Tabagismo",
+        "texto": "Fumar aumenta risco de tosse crônica, falta de ar e diversas doenças graves.",
+        "icone": "fas fa-smoking"
+    },
+    {
+        "titulo": "Exposição ao sol",
+        "texto": "Use protetor solar para prevenir sintomas de queimadura e riscos futuros de câncer de pele.",
+        "icone": "fas fa-sun"
+    },
+    {
+        "titulo": "Náuseas",
+        "texto": "Podem estar ligadas a intoxicação alimentar, infecções ou efeitos colaterais de medicamentos.",
+        "icone": "fas fa-disease"
+    },
+    {
+        "titulo": "Palpitações",
+        "texto": "Sensação de coração acelerado pode indicar ansiedade ou alterações cardíacas.",
+        "icone": "fas fa-heartbeat"
+    },
+    {
+        "titulo": "Resfriado comum",
+        "texto": "Causa sintomas como congestão nasal, espirros e dor de garganta leves.",
+        "icone": "fas fa-virus"
+    },
+    {
+        "titulo": "Gripe",
+        "texto": "Provoca febre alta, dores musculares e fadiga intensa. Vacinação é a melhor prevenção.",
+        "icone": "fas fa-syringe"
+    },
+    {
+        "titulo": "Dores musculares",
+        "texto": "Podem vir de esforço físico, má postura ou infecções virais.",
+        "icone": "fas fa-dumbbell"
+    },
+    {
+        "titulo": "Visão turva",
+        "texto": "Pode estar associada a enxaqueca, diabetes ou problemas oculares.",
+        "icone": "fas fa-eye"
+    },
+    {
+        "titulo": "Perda de apetite",
+        "texto": "Se persistente, pode indicar infecção, depressão ou problemas digestivos.",
+        "icone": "fas fa-utensils"
+    },
+    {
+        "titulo": "Dificuldade para respirar",
+        "texto": "Sintoma que exige atenção imediata, pode indicar asma, infecção ou problema cardíaco.",
+        "icone": "fas fa-wind"
+    },
+    {
+        "titulo": "Meditação",
+        "texto": "A prática regular ajuda a reduzir sintomas de ansiedade e melhorar a concentração.",
+        "icone": "fas fa-om"
+    }
+]
