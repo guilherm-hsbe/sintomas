@@ -106,13 +106,14 @@
 
         <!-- intensidade -->
         <div class="col-xl-4">
-            <label for="intensidade" class="form-label">Intensidade</label>
-            <input type="hidden" name="intensidade" id="intensidadeInput" value="<%= sintoma ? sintoma.intensidade : '' %>">
+            <label for="btnIntensidade" class="form-label">Intensidade</label>
+            <input type="hidden" name="intensidade" id="hdnIntensidade" value="<%= sintoma ? sintoma.intensidade : '' %>">
 
             <div class="dropdown w-100">
-                <button class="form-select text-start" type="button" id="dropdownIntensidade" data-bs-toggle="dropdown">
+                <button class="form-select text-start" type="button" id="btnIntensidade" data-bs-toggle="dropdown">
                     <i class="fas fa-thermometer-half me-2"></i> Selecione a intensidade
                 </button>
+
                 <ul class="dropdown-menu border-2 rounded-4 my-1 w-100" id="listaIntensidade">
                     <a class="dropdown-item d-flex flex-column" href="#" data-value="">
                         <div class='d-flex align-items-center'>
@@ -175,6 +176,7 @@
             ><%= sintoma ? sintoma.observacoes : '' %></textarea>
         </div>
 
+        <!-- botão cadastrar/editar -->
         <div class="col-sm"></div>
         <div class="col-sm-auto mt-4">
             <button 
@@ -222,15 +224,10 @@
      */
     function handleDuracao(aumentar) {
         if (duracao) {
-            if (aumentar) {
-                duracao.value ++;
-            } else {
-                if (duracao.value >= 1)
-                    duracao.value --;
-            }
-
-            if (duracao.value <= 0)
-                duracao.value = '';
+            if (aumentar) duracao.value ++;
+            else
+                if (duracao.value >= 1) duracao.value --;
+            if (duracao.value <= 0) duracao.value = '';
         }
     }
 
@@ -238,8 +235,8 @@
      * Monta lista predefinida intensidades.
      */
     const listaIntensidade = document.getElementById("listaIntensidade");
-    const dropdownIntensidade = document.getElementById("dropdownIntensidade");
-    const hdnIntensidade = document.getElementById("intensidadeInput");
+    const btnIntensidade = document.getElementById("btnIntensidade");
+    const hdnIntensidade = document.getElementById("hdnIntensidade");
 
     intensidades.forEach(item => {
         const li = document.createElement("li");
@@ -267,7 +264,7 @@
         const text = target.querySelector(".fw-bold").textContent;
         const icon = target.querySelector("i").outerHTML;
 
-        dropdownIntensidade.innerHTML = icon + " " + text;
+        btnIntensidade.innerHTML = icon + " " + text;
         hdnIntensidade.value = value;
     });
 
@@ -281,7 +278,7 @@
         if (itemSelecionado) {
             const text = itemSelecionado.querySelector(".fw-bold").textContent;
             const icon = itemSelecionado.querySelector("i").outerHTML;
-            dropdownIntensidade.innerHTML = icon + " " + text;
+            btnIntensidade.innerHTML = icon + " " + text;
         }
     }
 
