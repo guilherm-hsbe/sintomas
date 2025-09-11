@@ -63,7 +63,9 @@
                     <% } %>
                 </button>
 
-                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100 overflow-y-auto" id="listaLocalizacao" style="max-height: 350px;">
+                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100 overflow-y-auto animate__animated animate__fadeIn animate__faster" 
+                    id="listaLocalizacao" 
+                    style="max-height: 350px;">
                 <% localizacoes.forEach(loc=> { %>
                     <li>
                         <button class="dropdown-item fw-medium" type="button" data-value="<%= loc.id %>">
@@ -116,7 +118,8 @@
                     <i class="fas fa-thermometer-half me-2"></i> Selecione a intensidade
                 </button>
 
-                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100" id="listaIntensidade">
+                <ul class="dropdown-menu border-2 rounded-4 my-1 w-100 animate__animated animate__fadeIn animate__faster" 
+                    id="listaIntensidade">
                     <button class="dropdown-item d-flex flex-column" type="button" data-value="">
                         <div class='d-flex align-items-center'>
                             <i class="fas fa-ban text-muted me-2"></i>
@@ -238,8 +241,7 @@
     function handleDuracao(aumentar) {
         if (duracao) {
             if (aumentar) duracao.value ++;
-            else
-                if (duracao.value >= 1) duracao.value --;
+            else if (duracao.value >= 1) duracao.value --;
             if (duracao.value <= 0) duracao.value = '';
         }
     }
